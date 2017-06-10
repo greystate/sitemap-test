@@ -8,4 +8,4 @@ give it a try, 'coz it won't let me forget about it :-) Finally had some time on
 I'm of course curious to see how Matt did it - I know the markup is "just" an unordered list, but I was instantly intrigued by the
 possible hazzles of getting the URL bit in there, not to mention getting the connecting lines in as well.
 
-*This is still a work in progress, e.g. I need to add the **Home** node and the connections between the 1st level items.*
+*This is a work in progress - need to add the **Home** node and the connections between the 1st level items.*
