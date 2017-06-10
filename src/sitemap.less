@@ -19,10 +19,10 @@ body {
 		--gutter-size: 24;
 		
 		/* Calculate other distances needed */
-		--gutter:      calc(var(--gutter-size) * 1px);
-		--doubleGut:   calc(var(--gutter-size) * 2px);
-		--halfGut:     calc(var(--gutter-size) * 0.5px);
-		--negativeGut: calc(var(--gutter-size) * -1px);
+		--gutter:      ~"calc(var(--gutter-size) * 1px)";
+		--doubleGut:   ~"calc(var(--gutter-size) * 2px)";
+		--halfGut:     ~"calc(var(--gutter-size) * 0.5px)";
+		--negativeGut: ~"calc(var(--gutter-size) * -1px)";
 		
 		/* Initial offset */
 		--offset: 1;
@@ -47,7 +47,7 @@ body {
 	width: var(--gutter);
 	height: 148%;
 	position: absolute;
-	transform: translate(calc(var(--gutter) * var(--offset) - var(--halfGut)), -25%);
+	transform: translate(~"calc(var(--gutter) * var(--offset) - var(--halfGut))", -25%);
 	border: solid var(--line-color);
 	border-width: 0 0 0 1px;
 	background: linear-gradient(90deg, var(--line-color) 0, var(--line-color) 100%) left 60% no-repeat;
@@ -57,7 +57,7 @@ body {
 
 .sitenav ul ul li:last-child::before {
 	height: var(--doubleGut);
-	transform: translate(calc(var(--gutter) * var(--offset) - var(--halfGut)), var(--negativeGut));
+	transform: translate(~"calc(var(--gutter) * var(--offset) - var(--halfGut))", var(--negativeGut));
 	border-radius: 0.1em;
 	border-width: 0 0 1px 1px;
 	background: none;
@@ -98,7 +98,7 @@ body {
 
 .sitenav li ul { padding-top: var(--gutter); }
 
-.sitenav ul ul li a           { margin-left: calc(var(--gutter) * var(--offset));}
+.sitenav ul ul li a           { margin-left: ~"calc(var(--gutter) * var(--offset))";}
 
 .sitenav ul ul ul li          { --offset: 2; }
 .sitenav ul ul ul ul li       { --offset: 3; }
