@@ -147,10 +147,15 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-transform: uppercase;
   font-size: 60%;
   color: var(--card-color);
   font-weight: normal;
+}
+.sitenav li a:hover::before {
+  max-width: none;
+  text-overflow: none;
+  background: var(--card-bgcolor);
+  box-shadow: 0 0 0 4px var(--card-bgcolor);
 }
 .sitenav li ul {
   padding-top: var(--gutter);

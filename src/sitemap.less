@@ -104,21 +104,29 @@ body {
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
 	position: relative;
 	font-weight: bold;
+
+	&::before {
+		content: attr(href);
+		position: absolute;
+		transform: translateY(-2em);
+		display: block;
+		max-width: 80%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-size: 60%;
+		color: var(--card-color);
+		font-weight: normal;
+	}
+	
+	&:hover::before {
+		max-width: none;
+		text-overflow: none;
+		background: var(--card-bgcolor);
+		box-shadow: 0 0 0 4px var(--card-bgcolor);
+	}
 }
 
-.sitenav li a::before {
-	content: attr(href);
-	position: absolute;
-	transform: translateY(-2em);
-	display: block;
-	max-width: 80%;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	font-size: 60%;
-	color: var(--card-color);
-	font-weight: normal;
-}
 
 .sitenav li ul { padding-top: var(--gutter); }
 
