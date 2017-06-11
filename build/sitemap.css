@@ -40,6 +40,9 @@
 #info:target {
   max-width: 40em;
 }
+.debug * {
+  outline: 1px dashed var(--card-color, #0f0);
+}
 body {
   background: #f9fafc;
   font-family: Helvetica, Arial, sans-serif;
@@ -66,7 +69,7 @@ body {
     padding: 0;
     margin: 0;
   }
-  .sitenav > ul {
+  .sitenav > ul > li > ul {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
@@ -74,11 +77,28 @@ body {
     grid-gap: var(--gutter);
   }
 }
+.sitenav {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sitenav header {
+  margin-bottom: 2em;
+}
+.sitenav header h1 {
+  font-size: 1.25em;
+  margin: 0;
+}
+.sitenav header h2 {
+  font-size: 0.625em;
+  font-weight: normal;
+  margin: 0.5em 0;
+}
 .sitenav ul li {
   position: relative;
   z-index: 2;
 }
-.sitenav ul ul li:before {
+.sitenav > ul > li > ul ul li:before {
   content: "";
   display: block;
   width: var(--gutter);
@@ -93,7 +113,7 @@ body {
   background-size: 100% 1px;
   z-index: 0;
 }
-.sitenav ul ul li:last-child::before {
+.sitenav > ul > li > ul ul li:last-child::before {
   height: var(--doubleGut);
   -webkit-transform: translate(calc(var(--gutter) * var(--offset) - var(--halfGut)), var(--negativeGut));
           transform: translate(calc(var(--gutter) * var(--offset) - var(--halfGut)), var(--negativeGut));
@@ -101,7 +121,7 @@ body {
   border-width: 0 0 1px 1px;
   background: none;
 }
-.sitenav ul ul li + li {
+.sitenav > ul > li > ul ul li + li {
   margin-top: var(--gutter);
 }
 .sitenav li a {
@@ -135,33 +155,35 @@ body {
 .sitenav li ul {
   padding-top: var(--gutter);
 }
-.sitenav ul ul li a {
+.sitenav > ul ul ul li a {
   margin-left: calc(var(--gutter) * var(--offset));
 }
-.sitenav ul ul ul li {
+.sitenav > ul ul ul ul li {
   --offset: 2;
 }
-.sitenav ul ul ul ul li {
+.sitenav > ul ul ul ul ul li {
   --offset: 3;
 }
-.sitenav ul ul ul ul ul li {
+.sitenav > ul ul ul ul ul ul li {
   --offset: 4;
 }
-.sitenav ul ul ul ul ul ul li {
+.sitenav > ul ul ul ul ul ul ul li {
   --offset: 5;
 }
+.sitenav li a {
+  --card-color: #e54d42;
+}
 .sitenav li li a {
-  --card-color: #44c473;
+  --card-color: #4494ce;
 }
 .sitenav li li li a {
-  --card-color: #d7823c;
+  --card-color: #44c473;
 }
 .sitenav li li li li a {
-  --card-color: #9461b0;
+  --card-color: #d7823c;
 }
-/* For debugging */
-.debug * {
-  outline: 1px dashed var(--card-color, #0f0);
+.sitenav li li li li li a {
+  --card-color: #9461b0;
 }
 .collection ul li:not(:last-child) {
   display: none;
