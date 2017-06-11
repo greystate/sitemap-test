@@ -14,64 +14,80 @@
 	<a class="close" href="#">&#215;</a>
 	
 	<div>
-		<p>This is a CSS experiment with <strong>CSS Grid</strong> and <strong>CSS Variables</strong>,
-		spawned by <a href="https://twitter.com/mattbrailsford/status/867378544770502661">a screenshot tweeted</a>
-		by <a href="https://twitter.com/mattbrailsford/">Matt Brailsford</a>.</p>
+		<p>
+			This is a CSS experiment with <strong>CSS Grid</strong> and <strong>CSS Variables</strong>,
+			spawned by <a href="https://twitter.com/mattbrailsford/status/867378544770502661">a screenshot tweeted</a>
+			by <a href="https://twitter.com/mattbrailsford/">Matt Brailsford</a>.
+		</p>
 
-		<p>When I see something like that, my mind goes into <em>&#8220;Oh, I wonder how I&#8217;d do that&#8230;&#8221;</em> mode, and I might as well
-		give it a try, &#8216;coz it won&#8217;t let me forget about it :-) Finally had some time on my hands to do it.</p>
+		<p>
+			When I see something like that, my mind goes into <em>&#8220;Oh, I wonder how I&#8217;d do that&#8230;&#8221;</em> mode, and I might as well
+			give it a try, &#8216;coz it won&#8217;t let me forget about it :-) Finally had some time on my hands to do it.
+		</p>
 
-		<p><em>This is still a work in progress, e.g. I need to add the <strong>Home</strong> node and the connections between the 1st level items.</em></p>
-		
-		<p>The source is available on GitHub: <a href="https://github.com/greystate/sitemap-test/">github.com/greystate/sitemap-test/</a>,
-		as is Matt&#8217;s version: <a href="https://github.com/mattbrailsford/css-sitemap/">github.com/mattbrailsford/css-sitemap/</a>.</p>
+		<p>
+			<em>This is a work in progress</em> &#8212; you can follow along on GitHub:
+			<a href="https://github.com/greystate/sitemap-test/">github.com/greystate/sitemap-test/</a>.
+			Matt&#8217;s version is also on GitHub: <a href="https://github.com/mattbrailsford/css-sitemap/">github.com/mattbrailsford/css-sitemap/</a>.
+		</p>
 		
 	</div>
 </aside>
 
 <nav aria-label="Sitemap" class="sitenav">
+	<header>
+		<h1>The Magic Toy Store</h1>
+		<h2>Sitemap &#8212; v1.1</h2>
+	</header>
+	
 	<ul>
 		<li>
-			<a href="/search/">Search</a>
+			<a href="https://magic-toys-example.com">Home</a>
 			<ul>
-				<li><a href="/search/supplier/">Supplier</a></li>
-			</ul>
-		</li>
-		<li>
-			<a href="/services/">Services</a>
-			<ul>
-				<li><a href="/services/design/">Graphic Design</a></li>
-				<li><a href="/services/development/">Web Development</a></li>
 				<li>
-					<a href="/services/marketing/">Internet Marketing</a>
+					<a href="/search/">Search</a>
 					<ul>
+						<li><a href="/search/supplier/">Supplier</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="/services/">Services</a>
+					<ul>
+						<li><a href="/services/design/">Graphic Design</a></li>
+						<li><a href="/services/development/">Web Development</a></li>
 						<li>
-							<a href="/services/marketing/social/">Social Media</a>
+							<a href="/services/marketing/">Internet Marketing</a>
 							<ul>
-								<li><a href="/services/marketing/social/twitter/">Twitter</a></li>
-								<li><a href="/services/marketing/social/facebook/">Facebook</a></li>
+								<li>
+									<a href="/services/marketing/social/">Social Media</a>
+									<ul>
+										<li><a href="/services/marketing/social/twitter/">Twitter</a></li>
+										<li><a href="/services/marketing/social/facebook/">Facebook</a></li>
+									</ul>
+								</li>
 							</ul>
 						</li>
 					</ul>
 				</li>
+				<li class="collection">
+					<a href="/projects/">Projects</a>
+					<ul>
+						<li><a href="/projects/:slug/">Finance</a></li>
+						<li><a href="/projects/:slug/">Medical</a></li>
+						<li><a href="/projects/:slug/">Education</a></li>
+						<li><a href="/projects/:slug/">Professional</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="/blog/">Blog</a>
+					<ul>
+						<li><a href="/blog/:slug/">Article</a></li>
+						<li><a href="/blog/:slug/">Article</a></li>
+					</ul>
+				</li>
+				<li><a href="/contact/">Contact</a></li>
 			</ul>
 		</li>
-		<li class="collection">
-			<a href="/projects/">Projects</a>
-			<ul>
-				<li><a href="/projects/">Finance</a></li>
-				<li><a href="/projects/">Medical</a></li>
-				<li><a href="/projects/">Education</a></li>
-				<li><a href="/projects/">Professional</a></li>
-			</ul>
-		</li>
-		<li>
-			<a href="/blog/">Blog</a>
-			<ul>
-				<li><a href="/blog/article/">Article</a></li>
-			</ul>
-		</li>
-		<li><a href="/contact/">Contact</a></li>
 	</ul>
 </nav>
 

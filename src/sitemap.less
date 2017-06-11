@@ -4,6 +4,7 @@
  */
 
 @import "infobox";
+@import "debug";
 
 body {
 	background: #f9fafc;
@@ -32,25 +33,63 @@ body {
 	}
 	
 	.sitenav ul { list-style: none; padding: 0; margin: 0; }
-	.sitenav > ul {
+
+	// The "Home" card
+	.sitenav > ul > li > a {
+		min-width: 200px;
+		max-width: 50%;
+		
+		&::after {
+			content: "";
+			display: block;
+			width: 1px;
+			height: var(--gutter);
+			position: absolute;
+			left: var(--halfGut);
+			top: 100%;
+			border-left: 1px solid var(--line-color);
+		}
+	}
+
+	.sitenav > ul > li > ul {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 		grid-gap: var(--gutter);
 	}
 }
 
-.sitenav ul li {
-	position: relative;
-	z-index: 2;
+.sitenav {
+	max-width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+
+	header {
+		margin-bottom: 2em;
+	
+		h1 {
+			font-size: 1.25em;
+			margin: 0;
+		}
+	
+		h2 {
+			font-size: 0.625em;
+			font-weight: normal;
+			margin: 0.5em 0;
+		}
+	}
 }
 
-.sitenav ul ul li:before {
+.sitenav ul li {
+	position: relative;
+}
+
+.sitenav > ul > li > ul ul li:before {
 	content: "";
 	display: block;
 	width: var(--gutter);
-	height: 148%;
+	height: ~"calc(101% + var(--gutter))";
 	position: absolute;
-	transform: translate(~"calc(var(--gutter) * var(--offset) - var(--halfGut))", -25%);
+	transform: translate(~"calc(var(--gutter) * var(--offset) - var(--halfGut))", var(--negativeGut));
 	border: solid var(--line-color);
 	border-width: 0 0 0 1px;
 	background: linear-gradient(90deg, var(--line-color) 0, var(--line-color) 100%) left 60% no-repeat;
@@ -58,15 +97,15 @@ body {
 	z-index: 0;
 }
 
-.sitenav ul ul li:last-child::before {
+.sitenav > ul > li > ul ul li:last-child::before {
 	height: var(--doubleGut);
 	transform: translate(~"calc(var(--gutter) * var(--offset) - var(--halfGut))", var(--negativeGut));
-	border-radius: 0.1em;
+	border-bottom-left-radius: 0.1em;
 	border-width: 0 0 1px 1px;
 	background: none;
 }
 
-.sitenav ul ul li + li {
+.sitenav > ul > li > ul ul li + li {
 	margin-top: var(--gutter);
 }
 
@@ -82,40 +121,46 @@ body {
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
 	position: relative;
 	font-weight: bold;
+
+	&::before {
+		content: attr(href);
+		position: absolute;
+		transform: translateY(-2em);
+		display: block;
+		max-width: 80%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-size: 60%;
+		color: var(--card-color);
+		font-weight: normal;
+	}
+	
+	&:hover::before {
+		max-width: none;
+		text-overflow: none;
+		background: var(--card-bgcolor);
+		box-shadow: 0 0 0 4px var(--card-bgcolor);
+		border-radius: 0.1em;
+		z-index: 1;
+	}
 }
 
-.sitenav li a::before {
-	content: attr(href);
-	position: absolute;
-	transform: translateY(-2em);
-	display: block;
-	max-width: 80%;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	text-transform: uppercase;
-	font-size: 60%;
-	color: var(--card-color);
-	font-weight: normal;
-}
 
 .sitenav li ul { padding-top: var(--gutter); }
 
-.sitenav ul ul li a           { margin-left: ~"calc(var(--gutter) * var(--offset))";}
+.sitenav > ul ul ul li a           { margin-left: ~"calc(var(--gutter) * var(--offset))";}
 
-.sitenav ul ul ul li          { --offset: 2; }
-.sitenav ul ul ul ul li       { --offset: 3; }
-.sitenav ul ul ul ul ul li    { --offset: 4; }
-.sitenav ul ul ul ul ul ul li { --offset: 5; }
+.sitenav > ul ul ul ul li          { --offset: 2; }
+.sitenav > ul ul ul ul ul li       { --offset: 3; }
+.sitenav > ul ul ul ul ul ul li    { --offset: 4; }
+.sitenav > ul ul ul ul ul ul ul li { --offset: 5; }
 
-.sitenav li li a              { --card-color: #44c473; }
-.sitenav li li li a           { --card-color: #d7823c; }
-.sitenav li li li li a        { --card-color: #9461b0; }
-
-/* For debugging */
-.debug * { outline: 1px dashed var(--card-color, #0f0); }
-
-
+.sitenav li a                      { --card-color: #e54d42; }
+.sitenav li li a                   { --card-color: #4494ce; }
+.sitenav li li li a                { --card-color: #44c473; }
+.sitenav li li li li a             { --card-color: #d7823c; }
+.sitenav li li li li li a          { --card-color: #9461b0; }
 
 // A collection doesn't show all of its children - just the last one
 // Shouldn't be used on nodes that have grandchildren
@@ -128,7 +173,7 @@ body {
 
 			a {
 				background: repeating-linear-gradient(120deg, var(--card-bgcolor), var(--card-bgcolor) 10px, #eee 10px, #eee 14px);
-				
+				background-clip: padding-box;
 				border-right: 1px dashed var(--line-color);
 				border-bottom: 1px dashed var(--line-color);
 				border-left: 1px dashed var(--line-color);
