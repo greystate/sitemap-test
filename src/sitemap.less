@@ -33,10 +33,31 @@ body {
 	}
 	
 	.sitenav ul { list-style: none; padding: 0; margin: 0; }
-	.sitenav > ul {
+	.sitenav > ul > li > ul {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 		grid-gap: var(--gutter);
+	}
+}
+
+.sitenav {
+	max-width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.sitenav header {
+	margin-bottom: 2em;
+	
+	h1 {
+		font-size: 1.25em;
+		margin: 0;
+	}
+	
+	h2 {
+		font-size: 0.625em;
+		font-weight: normal;
+		margin: 0.5em 0;
 	}
 }
 
@@ -45,7 +66,7 @@ body {
 	z-index: 2;
 }
 
-.sitenav ul ul li:before {
+.sitenav > ul > li > ul ul li:before {
 	content: "";
 	display: block;
 	width: var(--gutter);
@@ -59,7 +80,7 @@ body {
 	z-index: 0;
 }
 
-.sitenav ul ul li:last-child::before {
+.sitenav > ul > li > ul ul li:last-child::before {
 	height: var(--doubleGut);
 	transform: translate(~"calc(var(--gutter) * var(--offset) - var(--halfGut))", var(--negativeGut));
 	border-radius: 0.1em;
@@ -67,7 +88,7 @@ body {
 	background: none;
 }
 
-.sitenav ul ul li + li {
+.sitenav > ul > li > ul ul li + li {
 	margin-top: var(--gutter);
 }
 
@@ -102,21 +123,18 @@ body {
 
 .sitenav li ul { padding-top: var(--gutter); }
 
-.sitenav ul ul li a           { margin-left: ~"calc(var(--gutter) * var(--offset))";}
+.sitenav > ul ul ul li a           { margin-left: ~"calc(var(--gutter) * var(--offset))";}
 
-.sitenav ul ul ul li          { --offset: 2; }
-.sitenav ul ul ul ul li       { --offset: 3; }
-.sitenav ul ul ul ul ul li    { --offset: 4; }
-.sitenav ul ul ul ul ul ul li { --offset: 5; }
+.sitenav > ul ul ul ul li          { --offset: 2; }
+.sitenav > ul ul ul ul ul li       { --offset: 3; }
+.sitenav > ul ul ul ul ul ul li    { --offset: 4; }
+.sitenav > ul ul ul ul ul ul ul li { --offset: 5; }
 
-.sitenav li li a              { --card-color: #44c473; }
-.sitenav li li li a           { --card-color: #d7823c; }
-.sitenav li li li li a        { --card-color: #9461b0; }
-
-/* For debugging */
-.debug * { outline: 1px dashed var(--card-color, #0f0); }
-
-
+.sitenav li a                      { --card-color: #e54d42; }
+.sitenav li li a                   { --card-color: #4494ce; }
+.sitenav li li li a                { --card-color: #44c473; }
+.sitenav li li li li a             { --card-color: #d7823c; }
+.sitenav li li li li li a          { --card-color: #9461b0; }
 
 // A collection doesn't show all of its children - just the last one
 // Shouldn't be used on nodes that have grandchildren
