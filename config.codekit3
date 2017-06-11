@@ -9,6 +9,12 @@
 	],
 "creatorBuild": "25813",
 "files": {
+	"\/.gitignore": {
+		"ft": 8192,
+		"oA": 1,
+		"oAP": "\/build\/.gitignore",
+		"oF": 1
+		},
 	"\/build": {
 		"ft": 65536,
 		"oA": 1,
@@ -33,10 +39,22 @@
 		"rFN": 0,
 		"uCM": 0
 		},
+	"\/src\/_alternate-map.kit": {
+		"ft": 2048,
+		"oA": 1,
+		"oAP": "\/build\/_alternate-map.html",
+		"oF": 0
+		},
 	"\/src\/_navigation-items.kit": {
 		"ft": 2048,
 		"oA": 1,
 		"oAP": "\/build\/_navigation-items.html",
+		"oF": 0
+		},
+	"\/src\/_silkeborg-map.kit": {
+		"ft": 2048,
+		"oA": 1,
+		"oAP": "\/build\/_silkeborg-map.html",
 		"oF": 0
 		},
 	"\/src\/debug.less": {
