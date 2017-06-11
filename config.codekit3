@@ -9,21 +9,11 @@
 	],
 "creatorBuild": "25813",
 "files": {
-	"\/build\/index.html": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/build\/build\/index.html",
+	"\/build": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "\/build\/build",
 		"oF": 0
-		},
-	"\/build\/sitemap.css": {
-		"aP": 0,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 2,
-		"oAP": "\/build\/build\/sitemap.css",
-		"oF": 0,
-		"oS": 0
 		},
 	"\/README.md": {
 		"cS": 0,
@@ -90,7 +80,8 @@
 	"creationDate": 518780180,
 	"displayValue": "mattbrailsford-sitemap",
 	"displayValueWasSetByUser": 0,
-	"iconImageName": "meme-kahn"
+	"iconImageName": "meme-kahn",
+	"lastBuiltDate": 518826645
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
