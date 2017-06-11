@@ -69,6 +69,20 @@ body {
     padding: 0;
     margin: 0;
   }
+  .sitenav > ul > li > a {
+    min-width: 200px;
+    max-width: 50%;
+  }
+  .sitenav > ul > li > a::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: var(--gutter);
+    position: absolute;
+    left: var(--halfGut);
+    top: 100%;
+    border-left: 1px solid var(--line-color);
+  }
   .sitenav > ul > li > ul {
     display: -ms-grid;
     display: grid;
@@ -156,6 +170,7 @@ body {
   text-overflow: none;
   background: var(--card-bgcolor);
   box-shadow: 0 0 0 4px var(--card-bgcolor);
+  border-radius: 0.1em;
 }
 .sitenav li ul {
   padding-top: var(--gutter);

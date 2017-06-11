@@ -33,6 +33,24 @@ body {
 	}
 	
 	.sitenav ul { list-style: none; padding: 0; margin: 0; }
+
+	// The "Home" card
+	.sitenav > ul > li > a {
+		min-width: 200px;
+		max-width: 50%;
+		
+		&::after {
+			content: "";
+			display: block;
+			width: 1px;
+			height: var(--gutter);
+			position: absolute;
+			left: var(--halfGut);
+			top: 100%;
+			border-left: 1px solid var(--line-color);
+		}
+	}
+
 	.sitenav > ul > li > ul {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -124,6 +142,7 @@ body {
 		text-overflow: none;
 		background: var(--card-bgcolor);
 		box-shadow: 0 0 0 4px var(--card-bgcolor);
+		border-radius: 0.1em;
 	}
 }
 
