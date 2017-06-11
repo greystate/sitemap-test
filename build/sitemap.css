@@ -110,7 +110,6 @@ body {
 }
 .sitenav ul li {
   position: relative;
-  z-index: 2;
 }
 .sitenav > ul > li > ul ul li:before {
   content: "";
@@ -171,6 +170,7 @@ body {
   background: var(--card-bgcolor);
   box-shadow: 0 0 0 4px var(--card-bgcolor);
   border-radius: 0.1em;
+  z-index: 1;
 }
 .sitenav li ul {
   padding-top: var(--gutter);
