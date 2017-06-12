@@ -35,7 +35,7 @@ body {
 	.sitenav ul { list-style: none; padding: 0; margin: 0; }
 
 	// The "Home" card
-	.sitenav > ul > li > a {
+	.sitenav.primary > ul > li > a {
 		min-width: 200px;
 		max-width: 50%;
 		
@@ -51,7 +51,8 @@ body {
 		}
 	}
 
-	.sitenav > ul > li > ul {
+	.sitenav.primary > ul > li > ul,
+	.sitenav.secondary > ul {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 		grid-gap: var(--gutter);
@@ -59,7 +60,7 @@ body {
 }
 
 .sitenav {
-	max-width: 80%;
+	max-width: 90%;
 	margin-left: auto;
 	margin-right: auto;
 
@@ -156,11 +157,22 @@ body {
 .sitenav > ul ul ul ul ul ul li    { --offset: 4; }
 .sitenav > ul ul ul ul ul ul ul li { --offset: 5; }
 
-.sitenav li a                      { --card-color: #e54d42; }
-.sitenav li li a                   { --card-color: #4494ce; }
-.sitenav li li li a                { --card-color: #44c473; }
-.sitenav li li li li a             { --card-color: #d7823c; }
-.sitenav li li li li li a          { --card-color: #9461b0; }
+// Primary navigation colors
+.primary li a                      { --card-color: #e54d42; }
+.primary li li a                   { --card-color: #4494ce; }
+.primary li li li a                { --card-color: #44c473; }
+.primary li li li li a             { --card-color: #d7823c; }
+.primary li li li li li a          { --card-color: #9461b0; }
+
+// Secondary navigation color
+.secondary li a                    { --card-color: #95a5a6; }
+
+//
+.secondary {
+	margin-top: 2em;
+	padding: 2em 0;
+	border-top: 1px dashed var(--line-color);
+}
 
 // A collection doesn't show all of its children - just the last one
 // Shouldn't be used on nodes that have grandchildren
