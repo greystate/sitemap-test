@@ -69,11 +69,11 @@ body {
     padding: 0;
     margin: 0;
   }
-  .sitenav > ul > li > a {
+  .sitenav.primary > ul > li > a {
     min-width: 200px;
     max-width: 50%;
   }
-  .sitenav > ul > li > a::after {
+  .sitenav.primary > ul > li > a::after {
     content: "";
     display: block;
     width: 1px;
@@ -83,7 +83,8 @@ body {
     top: 100%;
     border-left: 1px solid var(--line-color);
   }
-  .sitenav > ul > li > ul {
+  .sitenav.primary > ul > li > ul,
+  .sitenav.secondary > ul {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
@@ -92,7 +93,7 @@ body {
   }
 }
 .sitenav {
-  max-width: 80%;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -190,20 +191,28 @@ body {
 .sitenav > ul ul ul ul ul ul ul li {
   --offset: 5;
 }
-.sitenav li a {
+.primary li a {
   --card-color: #e54d42;
 }
-.sitenav li li a {
+.primary li li a {
   --card-color: #4494ce;
 }
-.sitenav li li li a {
+.primary li li li a {
   --card-color: #44c473;
 }
-.sitenav li li li li a {
+.primary li li li li a {
   --card-color: #d7823c;
 }
-.sitenav li li li li li a {
+.primary li li li li li a {
   --card-color: #9461b0;
+}
+.secondary li a {
+  --card-color: #95a5a6;
+}
+.secondary {
+  margin-top: 2em;
+  padding: 2em 0;
+  border-top: 1px dashed var(--line-color);
 }
 .collection ul li:not(:last-child) {
   display: none;
