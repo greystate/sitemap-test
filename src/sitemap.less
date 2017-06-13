@@ -145,6 +145,14 @@ body {
 		border-radius: 0.1em;
 		z-index: 1;
 	}
+	
+	&[title]::after {
+		content: attr(title);
+		display: block;
+		font-weight: normal;
+		font-size: 0.75em;
+		margin-top: 0.5em;
+	}
 }
 
 
