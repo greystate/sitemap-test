@@ -77,7 +77,7 @@
 		"oS": 0,
 		"rU": 0,
 		"sI": 0,
-		"sM": 0,
+		"sM": 1,
 		"sU": 0
 		},
 	"\/src\/index.kit": {
@@ -100,7 +100,7 @@
 		"oS": 0,
 		"rU": 0,
 		"sI": 0,
-		"sM": 0,
+		"sM": 1,
 		"sU": 0
 		},
 	"\/src\/sitemap.less": {
@@ -117,7 +117,7 @@
 		"oS": 0,
 		"rU": 0,
 		"sI": 0,
-		"sM": 0,
+		"sM": 1,
 		"sU": 0
 		}
 	},
@@ -1951,7 +1951,7 @@
 		"shouldRunAutoprefixer": 1,
 		"shouldRunBless": 1,
 		"strictImports": 0,
-		"strictMath": 0,
+		"strictMath": 1,
 		"strictUnits": 0
 		},
 	"languageDefaultsMARKDOWN": {
