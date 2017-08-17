@@ -6,32 +6,16 @@
 @import "infobox";
 @import "debug";
 
+
 body {
 	background: #f9fafc;
 	font-family: Helvetica, Arial, sans-serif;
 }
 
 @supports (display: grid) and (--css: variables) {
-	.sitenav {
-		/* Define colors */
-		--link-color: #35331d;
-		--line-color: #dcdddf;
-		--card-color: #4494ce;
-		--card-bgcolor: #fff;
-		
-		/* Distance between the cards */
-		--gutter-size: 24;
-		
-		/* Calculate other distances needed */
-		--gutter:      calc(var(--gutter-size) * 1px);
-		--doubleGut:   calc(var(--gutter-size) * 2px);
-		--halfGut:     calc(var(--gutter-size) * 0.5px);
-		--negativeGut: calc(var(--gutter-size) * -1px);
-		
-		/* Initial offset */
-		--offset: 1;
-	}
 	
+	@import "invariably";
+
 	.sitenav ul { list-style: none; padding: 0; margin: 0; }
 
 	// The "Home" card
@@ -162,7 +146,7 @@ body {
 
 .sitenav li ul { padding-top: var(--gutter); }
 
-.sitenav > ul ul ul li a           { margin-left: ~"calc(var(--gutter) * var(--offset))";}
+.sitenav > ul ul ul li a           { margin-left: calc(var(--gutter) * var(--offset));}
 
 .sitenav > ul ul ul ul li          { --offset: 2; }
 .sitenav > ul ul ul ul ul li       { --offset: 3; }

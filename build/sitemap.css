@@ -52,8 +52,9 @@ body {
     /* Define colors */
     --link-color: #35331d;
     --line-color: #dcdddf;
-    --card-color: #4494ce;
     --card-bgcolor: #fff;
+    /* Initial Card color */
+    --card-color: #4494ce;
     /* Distance between the cards */
     --gutter-size: 24;
     /* Calculate other distances needed */
@@ -125,7 +126,6 @@ body {
           transform: translate(calc(var(--gutter) * var(--offset) - var(--halfGut)), var(--negativeGut));
   border: solid var(--line-color);
   border-width: 0 0 0 1px;
-  background: -webkit-linear-gradient(left, var(--line-color) 0, var(--line-color) 100%) left 60% no-repeat;
   background: linear-gradient(90deg, var(--line-color) 0, var(--line-color) 100%) left 60% no-repeat;
   background-size: 100% 1px;
   z-index: 0;
@@ -231,7 +231,6 @@ body {
   margin-top: 0;
 }
 .collection ul li:last-child a {
-  background: -webkit-repeating-linear-gradient(330deg, var(--card-bgcolor), var(--card-bgcolor) 10px, #eee 10px, #eee 14px);
   background: repeating-linear-gradient(120deg, var(--card-bgcolor), var(--card-bgcolor) 10px, #eee 10px, #eee 14px);
   background-clip: padding-box;
   border-right: 1px dashed var(--line-color);
