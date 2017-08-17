@@ -6,49 +6,26 @@
 @import "infobox";
 @import "debug";
 
+// A few constants for the fallback styles
+@line_color:   #ddd;
+@card_color:   #8f96db;
+@card_bgcolor: #fff;
+@text_color:   #333;
+@url_color:    #888;
+@page_bgcolor: #f9fafc;
 
 body {
-	background: #f9fafc;
+	background: @page_bgcolor;
 	font-family: Helvetica, Arial, sans-serif;
 }
 
-@supports (display: grid) and (--css: variables) {
-	
-	@import "invariably";
-
-	.sitenav ul { list-style: none; padding: 0; margin: 0; }
-
-	// The "Home" card
-	.sitenav.primary > ul > li > a {
-		min-width: 200px;
-		max-width: 50%;
-		
-		+ ul {
-			position: relative;
-			
-			&::before {
-				content: "";
-				display: block;
-				width: 1px;
-				height: var(--gutter);
-				position: absolute;
-				left: var(--halfGut);
-				top: 0;
-				border-left: 1px solid var(--line-color);
-			}
-		}
-	}
-
-	.sitenav.primary > ul > li > ul,
-	.sitenav.secondary > ul {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-		grid-gap: var(--gutter);
-	}
+ul {
+	list-style: none;
+	margin: 1em 0 1em;
 }
 
 .sitenav {
-	max-width: 90%;
+	max-width: 60%;
 	margin-left: auto;
 	margin-right: auto;
 
@@ -66,108 +43,61 @@ body {
 			margin: 0.5em 0;
 		}
 	}
-}
-
-.sitenav ul li {
-	position: relative;
-}
-
-.sitenav > ul > li > ul ul li:before {
-	content: "";
-	display: block;
-	width: var(--gutter);
-	height: calc(101% + var(--gutter));
-	position: absolute;
-	transform: translate(calc(var(--gutter) * var(--offset) - var(--halfGut)), var(--negativeGut));
-	border: solid var(--line-color);
-	border-width: 0 0 0 1px;
-	background: linear-gradient(90deg, var(--line-color) 0, var(--line-color) 100%) left 60% no-repeat;
-	background-size: 100% 1px;
-	z-index: 0;
-}
-
-.sitenav > ul > li > ul ul li:last-child::before {
-	height: var(--doubleGut);
-	transform: translate(calc(var(--gutter) * var(--offset) - var(--halfGut)), var(--negativeGut));
-	border-bottom-left-radius: 0.1em;
-	border-width: 0 0 1px 1px;
-	background: none;
-}
-
-.sitenav > ul > li > ul ul li + li {
-	margin-top: var(--gutter);
-}
-
-.sitenav li a {
-	display: block;
-	border-top: 0.3em solid #d9524b;
-	border-top-color: var(--card-color);
-	background: var(--card-bgcolor);
-	padding: 30px 15px 15px;
-	border-radius: 0.3em;
-	text-decoration: none;
-	color: var(--link-color);
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
-	position: relative;
-	font-weight: bold;
-
-	&::before {
-		content: attr(href);
-		position: absolute;
-		transform: translateY(-2em);
-		display: block;
-		max-width: 80%;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		font-size: 60%;
-		color: var(--card-color);
-		font-weight: normal;
-	}
 	
-	&:hover::before {
-		max-width: none;
-		text-overflow: none;
-		background: var(--card-bgcolor);
-		box-shadow: 0 0 0 4px var(--card-bgcolor);
-		border-radius: 0.1em;
-		z-index: 1;
+	ul li {
+		position: relative;
+		
+		+ li { margin-top: 10px; }
 	}
-	
-	&[title]::after {
-		content: attr(title);
+
+	li a {
 		display: block;
-		font-weight: normal;
-		font-size: 0.75em;
-		margin-top: 0.5em;
+		border-top: 0.3em solid @card_color;
+		background: @card_bgcolor;
+		color: @text_color;
+		padding: 30px 15px 15px;
+		border-radius: 0.3em;
+		text-decoration: none;
+		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+		position: relative;
+		font-weight: bold;
+
+		&::before {
+			content: attr(href);
+			position: absolute;
+			transform: translateY(-2em);
+			display: block;
+			max-width: 80%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			font-size: 60%;
+			color: @url_color;
+			font-weight: normal;
+		}
+	
+		&:hover::before {
+			max-width: none;
+			text-overflow: none;
+			border-radius: 0.1em;
+			z-index: 1;
+		}
+	
+		&[title]::after {
+			content: attr(title);
+			display: block;
+			font-weight: normal;
+			font-size: 0.75em;
+			margin-top: 0.5em;
+		}
 	}
 }
 
-
-.sitenav li ul { padding-top: var(--gutter); }
-
-.sitenav > ul ul ul li a           { margin-left: calc(var(--gutter) * var(--offset));}
-
-.sitenav > ul ul ul ul li          { --offset: 2; }
-.sitenav > ul ul ul ul ul li       { --offset: 3; }
-.sitenav > ul ul ul ul ul ul li    { --offset: 4; }
-.sitenav > ul ul ul ul ul ul ul li { --offset: 5; }
-
-// Primary navigation colors
-.primary li a                      { --card-color: #e54d42; }
-.primary li li a                   { --card-color: #4494ce; }
-.primary li li li a                { --card-color: #44c473; }
-.primary li li li li a             { --card-color: #d7823c; }
-.primary li li li li li a          { --card-color: #9461b0; }
-
-// Secondary navigation color
-.secondary li a                    { --card-color: #95a5a6; }
-
-//
+// Add a separator before the secondary nav (if present)
 .secondary {
 	margin-top: 2em;
 	padding: 2em 0;
-	border-top: 1px dashed var(--line-color);
+	border-top: 1px dashed #ccc;
 }
 
 // A collection doesn't show all of its children - just the last one
@@ -180,11 +110,11 @@ body {
 			margin-top: 0;
 
 			a {
-				background: repeating-linear-gradient(120deg, var(--card-bgcolor), var(--card-bgcolor) 10px, #eee 10px, #eee 14px);
+				background: repeating-linear-gradient(120deg, @card_bgcolor, @card_bgcolor 10px, #eee 10px, #eee 14px);
 				background-clip: padding-box;
-				border-right: 1px dashed var(--line-color);
-				border-bottom: 1px dashed var(--line-color);
-				border-left: 1px dashed var(--line-color);
+				border-right: 1px dashed @line_color;
+				border-bottom: 1px dashed @line_color;
+				border-left: 1px dashed @line_color;
 				box-shadow: none;
 
 				&::after {
@@ -193,11 +123,11 @@ body {
 					width: 100%;
 					height: 100%;
 					border-radius: 0.3em;
-					border: 1px dashed var(--line-color);
+					border: 1px dashed @line_color;
 					position: absolute;
 					top: 3px;
 					left: 3px;
-					background: var(--card-bgcolor);
+					background: @card_bgcolor;
 					z-index: -1;
 					box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
 				}
@@ -205,3 +135,142 @@ body {
 		}
 	}
 }
+
+@supports (display: grid) and (--css: variables) {
+	
+	// Define CSS variables here
+	@import "invariably";
+	
+	.sitenav {
+		max-width: 90%;
+
+		ul {
+			padding: 0;
+			margin: 0;
+			
+			li + li { margin-top: 0; }
+		}
+		
+		li a {
+			border-top-color: var(--card-color);
+			background: var(--card-bgcolor);
+			color: var(--link-color);
+
+			&::before {
+				color: var(--card-color);
+			}
+	
+			&:hover::before {
+				background: var(--card-bgcolor);
+				box-shadow: 0 0 0 4px var(--card-bgcolor);
+			}
+		}
+		
+		// Distance between items in sublists
+		> ul > li > ul ul li + li {
+			margin-top: var(--gutter);
+		}
+		
+		
+		// Connectors
+		> ul > li > ul ul li:before {
+			content: "";
+			display: block;
+			width: var(--gutter);
+			height: calc(101% + var(--gutter));
+			position: absolute;
+			transform: translate(calc(var(--gutter) * var(--offset) - var(--halfGut)), var(--negativeGut));
+			border: solid var(--line-color);
+			border-width: 0 0 0 1px;
+			background: linear-gradient(90deg, var(--line-color) 0, var(--line-color) 100%) left 60% no-repeat;
+			background-size: 100% 1px;
+			z-index: 0;
+		}
+		
+		// Connector on last item doesn't go further down 
+		> ul > li > ul ul li:last-child::before {
+			height: var(--doubleGut);
+			transform: translate(calc(var(--gutter) * var(--offset) - var(--halfGut)), var(--negativeGut));
+			border-bottom-left-radius: 0.1em;
+			border-width: 0 0 1px 1px;
+			background: none;
+		}
+		
+		// The "Home" card
+		&.primary > ul > li > a {
+			min-width: 200px;
+			max-width: 50%;
+		
+			+ ul {
+				position: relative;
+			
+				// Connector from Home to first item of 1st level
+				&::before {
+					content: "";
+					display: block;
+					width: 1px;
+					height: var(--gutter);
+					position: absolute;
+					left: var(--halfGut);
+					top: 0;
+					border-left: 1px solid var(--line-color);
+				}
+			}
+		}
+	}
+	
+	.sitenav.primary > ul > li > ul,
+	.sitenav.secondary > ul {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		grid-gap: var(--gutter);
+	}
+
+	.sitenav {
+		// Gutter between (above) list levels
+		li ul                     { padding-top: var(--gutter); }
+
+		// Offsets & gutters
+		> ul ul ul li a           { margin-left: calc(var(--gutter) * var(--offset));}
+		
+		// With the above calculation in place,
+		// it's just a matter of defining the `--offset` variable
+		// for each level. No further calculations necessary.
+		> ul ul ul ul li          { --offset: 2; }
+		> ul ul ul ul ul li       { --offset: 3; }
+		> ul ul ul ul ul ul li    { --offset: 4; }
+		> ul ul ul ul ul ul ul li { --offset: 5; }
+	}
+	
+	// Primary navigation colors
+	.primary li a                 { --card-color: #e54d42; }
+	.primary li li a              { --card-color: #4494ce; }
+	.primary li li li a           { --card-color: #44c473; }
+	.primary li li li li a        { --card-color: #d7823c; }
+	.primary li li li li li a     { --card-color: #9461b0; }
+
+	// Secondary navigation colors
+	.secondary {
+		border-top-color: var(--line-color);
+		
+		li a { --card-color: #95a5a6; }
+	}
+	
+	.collection ul li {
+		&:last-child {
+			a {
+				background: repeating-linear-gradient(120deg, var(--card-bgcolor), var(--card-bgcolor) 10px, #eee 10px, #eee 14px);
+
+				border-right:  1px dashed var(--line-color);
+				border-bottom: 1px dashed var(--line-color);
+				border-left:   1px dashed var(--line-color);
+
+				&::after {
+					border-color: var(--line-color);
+					background:   var(--card-bgcolor);
+				}
+			}
+		}
+	}
+	
+} // @supports()
