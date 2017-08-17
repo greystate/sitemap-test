@@ -7,7 +7,7 @@
 		"uuidString": "9D760F38-E9C4-4DD8-8560-BC65D3803522"
 		}
 	],
-"creatorBuild": "25813",
+"creatorBuild": "25849",
 "files": {
 	"\/.gitignore": {
 		"ft": 8192,
@@ -77,7 +77,7 @@
 		"oS": 0,
 		"rU": 0,
 		"sI": 0,
-		"sM": 0,
+		"sM": 1,
 		"sU": 0
 		},
 	"\/src\/index.kit": {
@@ -100,7 +100,24 @@
 		"oS": 0,
 		"rU": 0,
 		"sI": 0,
-		"sM": 0,
+		"sM": 1,
+		"sU": 0
+		},
+	"\/src\/invariably.less": {
+		"aP": 1,
+		"bl": 1,
+		"dJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/build\/invariably.css",
+		"oF": 0,
+		"oS": 0,
+		"rU": 0,
+		"sI": 0,
+		"sM": 1,
 		"sU": 0
 		},
 	"\/src\/sitemap.less": {
@@ -117,7 +134,7 @@
 		"oS": 0,
 		"rU": 0,
 		"sI": 0,
-		"sM": 0,
+		"sM": 1,
 		"sU": 0
 		}
 	},
@@ -1951,7 +1968,7 @@
 		"shouldRunAutoprefixer": 1,
 		"shouldRunBless": 1,
 		"strictImports": 0,
-		"strictMath": 0,
+		"strictMath": 1,
 		"strictUnits": 0
 		},
 	"languageDefaultsMARKDOWN": {
@@ -2084,6 +2101,7 @@
 			"fileExtension": "xslt"
 			}
 		],
+	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
 	"skippedFoldersString": "log, _logs, logs, _cache, cache, \/storage\/framework\/sessions, node_modules",
 	"sourceFolderName": "src",
